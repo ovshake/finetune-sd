@@ -89,3 +89,10 @@ I have calculated the LPIPS score using [richzhang/PerceptualSimilarity](https:/
 | eWuc6TXc8Ok.jpg: 0.701 | ![](./test/gt_images/eWuc6TXc8Ok.jpg) | ![](./test/sd1-5/eWuc6TXc8Ok.jpg) | ![](./test/finetuned/eWuc6TXc8Ok.jpg) |
 | MqlbnO4W8ZE.jpg: 0.665 | ![](./test/gt_images/MqlbnO4W8ZE.jpg) | ![](./test/sd1-5/MqlbnO4W8ZE.jpg) | ![](./test/finetuned/MqlbnO4W8ZE.jpg) |
 | _Ui26s8zR_c.jpg: 0.618 | ![](./test/gt_images/_Ui26s8zR_c.jpg) | ![](./test/sd1-5/_Ui26s8zR_c.jpg) | ![](./test/finetuned/_Ui26s8zR_c.jpg) |
+
+
+# What can we conclude?
+
+We can see that even though LPIPS score is better for the finetuned model, FID score is higher. Since these are perceptual distance metric, the lower, the better. Hence, there is a lot of scope of improvement. Due to time limitations, we could only train for few steps. But ideally, we can finetune for more steps, ideally 15000 steps is recommended in the original script. Also, we can do various hyperparameter tuning, on the learning rate and other finetuning parameters. During sampling, we can experiment with various diffusion steps.
+
+Also, the original SD 1.5 model has used CLIP Text encoder. Using [CLIP Interrogator](https://huggingface.co/spaces/pharma/CLIP-Interrogator) may have fetched better results, with prompts in line with CLIP embeddings.
