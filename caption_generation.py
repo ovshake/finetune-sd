@@ -14,13 +14,20 @@ import json
 import argparse
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-# blip2_processor = AutoProcessor.from_pretrained("Salesforce/blip2-opt-6.7b-coco")
-# blip2_model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-6.7b-coco", device_map="auto", torch_dtype=torch.float16)
 blip_processor_large = AutoProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
 blip_model_large = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(device)
 
 
 def read_image(image_url):
+    """
+    Fetches an image from a URL and opens it as a PIL Image object.
+
+    Args:
+    image_url (str): URL of the image to be fetched and opened.
+
+    Returns:
+    img (PIL.Image.Image or None): Opened image object, or None if the image could not be opened.
+    """
     try:
         response = requests.get(image_url)
         img = Image.open(BytesIO(response.content))
@@ -30,6 +37,19 @@ def read_image(image_url):
 
 
 def generate_caption(processor, model, image, tokenizer=None, use_float_16=False):
+    """
+    Generates a caption for a given image using a specified processor and model.
+
+    Args:
+    processor (transformers.PreTrainedProcessor): Processor to preprocess the image.
+    model (transformers.PreTrainedModel): Model to generate the caption.
+    image (PIL.Image.Image): Image to be captioned.
+    tokenizer (transformers.PreTrainedTokenizer, optional): Tokenizer to decode the caption.
+    use_float_16 (bool, optional): Whether to use float16 for inputs, defaults to False.
+
+    Returns:
+    generated_caption (str): Generated caption for the image.
+    """
     inputs = processor(images=image, return_tensors="pt").to(device)
 
     if use_float_16:
@@ -47,11 +67,26 @@ def generate_caption(processor, model, image, tokenizer=None, use_float_16=False
 
 
 def generate_captions(image):
+    """
+    Generates a caption for a given image using the global 'blip_processor_large' and 'blip_model_large'.
+
+    Args:
+    image (PIL.Image.Image): Image to be captioned.
+
+    Returns:
+    caption_blip_large (str): Generated caption for the image.
+    """
     caption_blip_large = generate_caption(blip_processor_large, blip_model_large, image)
     return caption_blip_large
 
 
 def fetch_data():
+    """
+    Fetches data from files stored in the './data/photos' directory and combines them into a pandas DataFrame.
+
+    Returns:
+    datasets (dict): Dictionary containing a combined pandas DataFrame of all the fetched data.
+    """
     path = './data/'
     documents = ['photos']
     datasets = {}
@@ -70,7 +105,15 @@ def fetch_data():
     return datasets
 
 def process_captions(image_url):
-    # image = read_image(image_url)
+    """
+    Processes captions for an image at a given URL.
+
+    Args:
+    image_url (str): URL of the image to process.
+
+    Returns:
+    caption_dict (dict or None): Dictionary containing the image URL and its caption, or None if the image could not be opened.
+    """
     image = Image.open(image_url)
     if not image:
         return None
@@ -82,21 +125,20 @@ def process_captions(image_url):
     return caption_dict
 
 def save_caption_dicts(caption_dicts):
+    """
+    Saves a list of dictionaries containing image metadata into a JSONL file.
+
+    Args:
+    caption_dicts (list of dict): List of dictionaries containing image metadata to save.
+    """
     with open("metadata-test.jsonl", 'w') as f:
         for line in caption_dicts:
             f.write(json.dumps({"file_name": line["image_url"], "text": line["text"]}) + '\n')
 
 if __name__ == '__main__':
-    # Parse command-line arguments
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('min_index', type=int, help='Minimum index')
-    # parser.add_argument('max_index', type=int, help='Maximum index')
-    # args = parser.parse_args()
     image_paths = glob.glob("/home/ubuntu/projects/finetune-sd/images/train/*.jpg")
     image_paths = image_paths[-10:]
     caption_dicts = []
-    # Slice the image_urls list according to the provided indices
-    # image_urls = image_urls[args.min_index:args.max_index]
     for image_url in tqdm(image_paths):
         caption_dict = process_captions(image_url)
         if caption_dict:
