@@ -1,4 +1,4 @@
-# finetune-sd
+# Finetuning Stable Diffusion: A Tutorial
 
 # Dataset
 Please download the unsplash-lite dataset from [here](https://github.com/unsplash/datasets). Since we will be finetuning it in HF text to image script, we will need to convert it into a particular format mentioned [here](https://huggingface.co/docs/datasets/image_dataset#imagefolder). The format will look like this
