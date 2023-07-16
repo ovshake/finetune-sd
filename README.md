@@ -77,18 +77,20 @@ I have calculated the LPIPS score using [richzhang/PerceptualSimilarity](https:/
 
 # Qualitative Results on Test Set
 
-| Image Name : LPIPS Score| Ground Truth | Original Model | Finetuned Model |
-| --- | --- | --- | --- |
-| 5S3YHJMPpB8.jpg: 0.810 | ![](./test/gt_images/5S3YHJMPpB8.jpg) | ![](./test/sd1-5/5S3YHJMPpB8.jpg) | ![](./test/finetuned/5S3YHJMPpB8.jpg) |
-| 5vc0dWJp05Y.jpg: 0.820 | ![](./test/gt_images/5vc0dWJp05Y.jpg) | ![](./test/sd1-5/5vc0dWJp05Y.jpg) | ![](./test/finetuned/5vc0dWJp05Y.jpg) |
-| uG5DYq4Ur04.jpg: 0.773 | ![](./test/gt_images/uG5DYq4Ur04.jpg) | ![](./test/sd1-5/uG5DYq4Ur04.jpg) | ![](./test/finetuned/uG5DYq4Ur04.jpg) |
-| C2UUFseZ8Lk.jpg: 0.657 | ![](./test/gt_images/C2UUFseZ8Lk.jpg) | ![](./test/sd1-5/C2UUFseZ8Lk.jpg) | ![](./test/finetuned/C2UUFseZ8Lk.jpg) |
-| pCv_JJmYLRc.jpg: 0.737 | ![](./test/gt_images/pCv_JJmYLRc.jpg) | ![](./test/sd1-5/pCv_JJmYLRc.jpg) | ![](./test/finetuned/pCv_JJmYLRc.jpg) |
-| uxC4Lqa1MSo.jpg: 0.643 | ![](./test/gt_images/uxC4Lqa1MSo.jpg) | ![](./test/sd1-5/uxC4Lqa1MSo.jpg) | ![](./test/finetuned/uxC4Lqa1MSo.jpg) |
-| PAnGAiaSPh0.jpg: 0.719 | ![](./test/gt_images/PAnGAiaSPh0.jpg) | ![](./test/sd1-5/PAnGAiaSPh0.jpg) | ![](./test/finetuned/PAnGAiaSPh0.jpg) |
-| eWuc6TXc8Ok.jpg: 0.701 | ![](./test/gt_images/eWuc6TXc8Ok.jpg) | ![](./test/sd1-5/eWuc6TXc8Ok.jpg) | ![](./test/finetuned/eWuc6TXc8Ok.jpg) |
-| MqlbnO4W8ZE.jpg: 0.665 | ![](./test/gt_images/MqlbnO4W8ZE.jpg) | ![](./test/sd1-5/MqlbnO4W8ZE.jpg) | ![](./test/finetuned/MqlbnO4W8ZE.jpg) |
-| _Ui26s8zR_c.jpg: 0.618 | ![](./test/gt_images/_Ui26s8zR_c.jpg) | ![](./test/sd1-5/_Ui26s8zR_c.jpg) | ![](./test/finetuned/_Ui26s8zR_c.jpg) |
+| Image Name : LPIPS Score| Ground Truth | Original Model | Finetuned Model | Prompt |
+| --- | --- | --- | --- | --- |
+| 5S3YHJMPpB8.jpg: 0.810 | <img src="./test/gt_images/5S3YHJMPpB8.jpg" width="512" height="512"> | <img src="./test/sd1-5/5S3YHJMPpB8.jpg" width="512" height="512"> | <img src="./test/finetuned/5S3YHJMPpB8.jpg" width="512" height="512"> | "starry night sky over a mountain range with a camper in the foreground" |
+| 5vc0dWJp05Y.jpg: 0.820 | <img src="./test/gt_images/5vc0dWJp05Y.jpg" width="512" height="512"> | <img src="./test/sd1-5/5vc0dWJp05Y.jpg" width="512" height="512"> | <img src="./test/finetuned/5vc0dWJp05Y.jpg" width="512" height="512"> | "there are a lot of birds flying in the sky with the moon in the background" |
+| uG5DYq4Ur04.jpg: 0.773 | <img src="./test/gt_images/uG5DYq4Ur04.jpg" width="512" height="512"> | <img src="./test/sd1-5/uG5DYq4Ur04.jpg" width="512" height="512"> | <img src="./test/finetuned/uG5DYq4Ur04.jpg" width="512" height="512"> | "there is a small dog that is laying down on a blanket" |
+| C2UUFseZ8Lk.jpg: 0.657 | <img src="./test/gt_images/C2UUFseZ8Lk.jpg" width="512" height="512"> | <img src="./test/sd1-5/C2UUFseZ8Lk.jpg" width="512" height="512"> | <img src="./test/finetuned/C2UUFseZ8Lk.jpg" width="512" height="512"> | "there is a pink flower that is in the middle of some green leaves" |
+| pCv_JJmYLRc.jpg: 0.737 | <img src="./test/gt_images/pCv_JJmYLRc.jpg" width="512" height="512"> | <img src="./test/sd1-5/pCv_JJmYLRc.jpg" width="512" height="512"> | <img src="./test/finetuned/pCv_JJmYLRc.jpg" width="512" height="512"> | "there is a view of a body of water with a lighthouse in the distance" |
+| uxC4Lqa1MSo.jpg: 0.643 | <img src="./test/gt_images/uxC4Lqa1MSo.jpg" width="512" height="512"> | <img src="./test/sd1-5/uxC4Lqa1MSo.jpg" width="512" height="512"> | <img src="./test/finetuned/uxC4Lqa1MSo.jpg" width="512" height="512"> | "there is a black and white photo of a curved road in the woods" |
+| PAnGAiaSPh0.jpg: 0.719 | <img src="./test/gt_images/PAnGAiaSPh0.jpg" width="512" height="512"> | <img src="./test/sd1-5/PAnGAiaSPh0.jpg" width="512" height="512"> | <img src="./test/finetuned/PAnGAiaSPh0.jpg" width="512" height="512"> | "there are two palm trees in the foreground and a sunset in the background" |
+| eWuc6TXc8Ok.jpg: 0.701 | <img src="./test/gt_images/eWuc6TXc8Ok.jpg" width="512" height="512"> | <img src="./test/sd1-5/eWuc6TXc8Ok.jpg" width="512" height="512"> | <img src="./test/finetuned/eWuc6TXc8Ok.jpg" width="512" height="512"> | "the sun is setting over the mountains and the clouds are low in the sky" |
+| MqlbnO4W8ZE.jpg: 0.665 | <img src="./test/gt_images/MqlbnO4W8ZE.jpg" width="512" height="512"> | <img src="./test/sd1-5/MqlbnO4W8ZE.jpg" width="512" height="512"> | <img src="./test/finetuned/MqlbnO4W8ZE.jpg" width="512" height="512"> | "there is a red dragonfly sitting on top of a twig" |
+| _Ui26s8zR_c.jpg: 0.618 | <img src="./test/gt_images/_Ui26s8zR_c.jpg" width="512" height="512"> | <img src="./test/sd1-5/_Ui26s8zR_c.jpg" width="512" height="512"> | <img src="./test/finetuned/_Ui26s8zR_c.jpg" width="512" height="512"> | "there is a man walking up a hill with a backpack on his back" |
+
+
 
 
 # What can we conclude?
